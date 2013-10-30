@@ -88,7 +88,7 @@ _start:
     .init:
         cmp BYTE [sockaddr], NULL                           ;check if IP was passed as arg
         je usage
-        cmp BYTE [sockport], NULL                           ;check if PORT was passed as arg
+        cmp WORD [sockport], NULL                           ;check if PORT was passed as arg
         je usage
         os.sock_open AF_INET, SOCK_STREAM, PROTO_TCP        ;open socket, result returned in eax
         mov DWORD [sockfd], eax
